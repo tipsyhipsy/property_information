@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
       redirect_to properties_path, notice: "登録しました。"
     else
       render :new, denger: "登録に失敗しました。"
+    end
   end
 
   def show
@@ -28,6 +29,7 @@ class PropertiesController < ApplicationController
       redirect_to properties_path, notice: "更新しました。"
     else
       render :edit
+    end
   end
 
   def destroy
