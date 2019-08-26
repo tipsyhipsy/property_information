@@ -22,6 +22,11 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    if @property.stations.empty?
+      2.times{ @property.stations.build }
+    else @property.stations == 1
+      @property.stations.build
+    end
   end
 
   def update
