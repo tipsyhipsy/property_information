@@ -14,18 +14,18 @@ ActiveRecord::Schema.define(version: 20190825181701) do
 
   create_table "properties", force: :cascade do |t|
     t.text     "property_name", null: false
-    t.integer  "rent",          null: false
-    t.string   "address",       null: false
-    t.integer  "age",           null: false
+    t.integer  "rent"
+    t.string   "address"
+    t.integer  "age"
     t.text     "note"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "stations", force: :cascade do |t|
-    t.string   "rute_name",       null: false
-    t.string   "station_name",    null: false
-    t.integer  "walking_minutes", null: false
+    t.string   "rute_name"
+    t.string   "station_name"
+    t.integer  "walking_minutes"
     t.integer  "property_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

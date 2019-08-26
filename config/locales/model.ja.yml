@@ -7,7 +7,7 @@ ja:
       station:
         station_name: 駅名
         rute_name: 路線名
-        :walking_minutes: 徒歩分数
+        walking_minutes: 徒歩分数
       property:
         property_name: 物件名
         rent: 賃料
