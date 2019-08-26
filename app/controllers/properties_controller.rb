@@ -33,7 +33,7 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property.destory
+    @property.destroy
     redirect_to properties_path, notice: "削除しました。"
   end
 
@@ -48,6 +48,7 @@ class PropertiesController < ApplicationController
       :note,
         stations_attributes:[
           :id,
+          :station_name,
           :rute_name,
           :station,
           :walking_minutes,
