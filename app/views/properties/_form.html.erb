@@ -1,0 +1,41 @@
+
+<%= form_for(@property) do |f| %>
+	<% if @property.errors.any? %>
+		<div id="error_explanation">
+			<h3>入力内容にエラーが<%= @property.errors.count %>件あります。</h3>
+		</div>
+		<ul style="list-style-type: none">
+			<% @property.errors.full_messages.each do |msg| %>
+				<li id='error_message'><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<ul style="list-style-type: none">
+		<li><%= f.label :property_name %>
+		<li><%= f.text_field :property_name %></li>
+		<li><%= f.label :rent %></li>
+		<li><%= f.text_field :rent %>円</li>
+		<li><%= f.label :address %></li>
+		<li><%= f.text_field :address %></li>
+		<li><%= f.label :age %></li>
+		<li><%= f.text_field :age %>年</li>
+		<li><%= f.label :note %></li>
+		<li><%= f.text_area :note %></li>
+	</ul>
+	<hr>
+	<ul style="list-style-type: none">
+		<% @property.stations.each.with_index(1) do |station, i| %>
+		<h4><%= "最寄駅#{i}" %></h4>
+			<%= f.fields_for :stations, station do |st_f| %>
+				<li><%= st_f.label :rute_name %></li>
+				<li><%= st_f.text_field :rute_name %></li>
+				<li><%= st_f.label :station_name %></li>
+				<li><%= st_f.text_field :station_name %></li>
+				<li><%= st_f.label :walking_minutes %></li>
+				<li><%= st_f.text_field :walking_minutes %>分</li>
+			<% end %>
+		<% end %>
+		<li><%= f.submit %></li>
+		<li><%= link_to '戻る', properties_path %></li>
+	</ul>
+<% end %>

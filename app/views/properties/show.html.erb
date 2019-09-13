@@ -1,0 +1,28 @@
+<h1>閲覧</h1>
+<ul style="list-style-type: none">
+	<li><strong>物件名：</strong><%="#{@property.property_name}"%></li>
+	<br>
+	<li><strong>賃料：</strong><%=number_with_delimiter"#{@property.rent}"%>円</li>
+	<br>
+	<li><strong>住所：</strong><%="#{@property.address}"%></li>
+	<br>
+	<li><strong>築年数：</strong><%=number_with_delimiter"#{@property.age}"%>年</li>
+	<br>
+	<li><strong>備考：</strong><%="#{@property.note}"%></li>
+</ul>
+	<hr>
+	<% @property.stations.each.with_index(1) do |station, i| %>
+		<h4><%= "最寄駅#{i}" %></h4>
+	<ul style="list-style-type: none">
+		<li><strong>路線名：</strong><%="#{station.rute_name}"%></li>
+		<br>
+		<li><strong>駅名：</strong><%="#{station.station_name}"%></li>
+		<br>
+		<li><strong>徒歩分数：</strong><%="#{station.walking_minutes}分"%></li>
+	</ul>
+	<% end %>
+	<p>
+		<%= link_to '編集', edit_property_path(@property.id) %>
+		&#124;
+		<%= link_to '戻る', properties_path %>
+	</p>
